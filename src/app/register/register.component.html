@@ -1,0 +1,54 @@
+<div class="register-container">
+    <mat-toolbar class="register-toolbar" color="primary">REGISTER</mat-toolbar>
+
+    <form class="register-form" [formGroup]="registerForm" (submit)="registerNow()">
+
+        <div class="inp-box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstname" matInput>
+            </mat-form-field>
+            <small *ngIf="(registerForm.get('firstname')?.invalid && isSubmitted) || (registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched)">*Required</small>
+        </div>
+
+        <div class="inp-box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastname" matInput>
+            </mat-form-field>
+            <small *ngIf="(registerForm.get('lastname')?.invalid && isSubmitted) || (registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched)">*Required</small>
+        </div>
+
+        <div class="inp-box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+            <small *ngIf="(registerForm.get('email')?.invalid && isSubmitted && !registerForm.get('email')?.dirty) || (registerForm.get('email')?.invalid && registerForm.get('email')?.touched && !registerForm.get('email')?.dirty)">*Required</small>
+            <small *ngIf="(registerForm.get('email')?.invalid && isSubmitted && registerForm.get('email')?.dirty) || (registerForm.get('email')?.invalid && registerForm.get('email')?.touched && registerForm.get('email')?.dirty)">Please enter valid email</small>
+        </div>
+
+        <div class="inp-box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+            </mat-form-field>
+            <small *ngIf="(registerForm.get('password')?.invalid && isSubmitted && !registerForm.get('password')?.dirty) || (registerForm.get('password')?.invalid && registerForm.get('password')?.touched && !registerForm.get('password')?.dirty)">*Required</small>
+            <small *ngIf="(registerForm.get('password')?.invalid && isSubmitted && registerForm.get('password')?.dirty) || (registerForm.get('password')?.invalid && registerForm.get('password')?.touched && registerForm.get('password')?.dirty)">Password must be 8 character with 1 capital, 1 small, 1 number and 1 special character</small>
+        </div>
+
+        <div class="inp-box">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Confirm Password</mat-label>
+                <input [appPasswordMatch]="'password'" type="password" formControlName="confirmpassword" matInput>
+            </mat-form-field>
+            <small *ngIf="(registerForm.get('confirmpassword')?.invalid && isSubmitted) || (registerForm.get('confirmpassword')?.invalid && registerForm.get('confirmpassword')?.touched)">Passwors and confirm password must be same</small>
+        </div>
+
+        <div class="register-btn">
+            <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid">Register</button>
+            <button type="reset" mat-raised-button color="warn" (click)="resetForm()" [disabled]="registerForm.invalid">Reset</button>
+        </div>
+    </form>
+
+</div>
