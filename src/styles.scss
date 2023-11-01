@@ -45,3 +45,23 @@ a{
 // html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple{
+  background-color: transparent !important;
+}
+
+.mat-form-field.mat-form-field-invalid.ng-touched .mat-form-field-ripple{
+  background-color: #f44336 !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label{
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mat-form-field.mat-form-field-invalid.ng-touched .mat-form-field-label{
+  color: #f44336;
+}
+
+.mat-form-field .mat-form-field-label .mat-form-field-required-marker {
+  color: #f44336;
+}

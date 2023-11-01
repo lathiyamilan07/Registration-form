@@ -42,7 +42,7 @@
                 <mat-label>Confirm Password</mat-label>
                 <input [appPasswordMatch]="'password'" type="password" formControlName="confirmpassword" matInput>
             </mat-form-field>
-            <small *ngIf="(registerForm.get('confirmpassword')?.invalid && isSubmitted) || (registerForm.get('confirmpassword')?.invalid && registerForm.get('confirmpassword')?.touched)">Passwors and confirm password must be same</small>
+            <small *ngIf="(registerForm.get('confirmpassword')?.invalid && isSubmitted) || (registerForm.get('confirmpassword')?.invalid && registerForm.get('confirmpassword')?.touched) || (registerForm.get('confirmpassword')?.value != registerForm.get('password')?.value && registerForm.get('confirmpassword')?.touched)">Passwors and confirm password must be same</small>
         </div>
 
         <div class="register-btn">

@@ -56,13 +56,15 @@ export class RegisterComponent implements OnInit {
 
   resetForm(){
     this.registerForm.reset();
-    this.registerForm.markAsUntouched();
+    this.registerForm.markAsPristine();
+    // this.registerForm.markAsUntouched();
+    // this.registerForm.updateValueAndValidity()
     this.isSubmitted = false
 
-    Object.keys(this.registerForm.controls).forEach((key) => {
-      const control :any = this.registerForm.get(key);
-      control.setErrors(null);
-    });
+    // Object.keys(this.registerForm.controls).forEach((key) => {
+    //   const control :any = this.registerForm.get(key);
+    //   control.setErrors(null);
+    // });
   }
 }
 
